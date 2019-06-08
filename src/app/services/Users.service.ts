@@ -13,7 +13,7 @@ export class UsersService {
     }
 
     getAll() {
-        return this.db.collection('users');
+        return this.db.collection('users').snapshotChanges();
     }
 
     create(data) {
