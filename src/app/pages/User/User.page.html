@@ -1,16 +1,31 @@
-<div>
+<div class="form-row">
     <loading [show]='loading'></loading>
 
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-        <input type="text" name="name" formControlName="name" />
-        <span *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched">
-            O campo nome é obrigatório
-        </span>
 
-        <input type="email" name="email" formControlName="email" placeholder="E-mail" />
-        <input type="number" name="age" formControlName="age" placeholder="Idade"/>
-        <input type="tel" name="phone" formControlName="phone" placeholder="Celular"/>
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="name" formControlName="name" placeholder="Nome" />
+            <span *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched">
+                O campo nome é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="email" class="form-control" name="email" formControlName="email" placeholder="E-mail" />
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="number" class="form-control" name="age" formControlName="age" placeholder="Idade"/>
+        </div>
+        
+        <div class="form-group col-sm-12">
+            <input type="tel" class="form-control" name="phone" formControlName="phone" placeholder="Celular"/>
+        </div>
+
+
     
+
+
         <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
             <span *ngIf="!userId">Criar</span>
             <span *ngIf="userId">Alterar</span> 

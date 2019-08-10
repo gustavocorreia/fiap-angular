@@ -2,10 +2,17 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Age</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
                 <th scope="col">E-mail</th>
             </tr>
         </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        </tbody>
     </table>
 </div>

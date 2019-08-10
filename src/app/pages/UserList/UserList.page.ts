@@ -15,12 +15,12 @@ export class UserListPage {
 
     constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {}
 
-    ngOnInit() {
+    ngOnInit () {
         this.getAllUsers()
     }
 
     private getAllUsers() {
-        var usersSnapshot = this.usersService.getAll();
+        const usersSnapshot = this.usersService.getAll();
 
         this.users = new Array<User>();
 
