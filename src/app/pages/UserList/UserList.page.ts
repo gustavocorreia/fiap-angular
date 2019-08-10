@@ -28,7 +28,7 @@ export class UserListPage {
 
             resp.map(item => {
 
-                if(item.payload.doc.exists){
+                if (item.payload.doc.exists) {
                     const user = {
                         id: item.payload.doc.id,
                         ...item.payload.doc.data()

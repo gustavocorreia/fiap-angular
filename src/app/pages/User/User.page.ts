@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {NgbButtonLabel} from '@ng-bootstrap/ng-bootstrap';
 
 import { UsersService } from '../../services/Users.service';
 import { DocumentReference } from '@angular/fire/firestore';
@@ -11,14 +12,14 @@ import { DocumentReference } from '@angular/fire/firestore';
 })
 
 export class UserPage {
-    private userId: string = '';
-    private loading: boolean = false;
+    public userId: string = '';
+    public loading: boolean = false;
 
     userForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
         age: new FormControl('', Validators.required),
-        phone: new FormControl('', Validators.required) 
+        phone: new FormControl('', Validators.required), 
     });
 
     constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {
@@ -34,11 +35,11 @@ export class UserPage {
 
     private getUser(id: string){
 
-        var userSnapshot = this.usersService.getById(id);
+        const userSnapshot = this.usersService.getById(id);
 
         userSnapshot.subscribe(res => {
-            if(res.payload.exists){
-                var user = res.payload.data()
+            if (res.payload.exists) {
+                const user = res.payload.data();
 
                 console.log(user);
 
@@ -48,19 +49,15 @@ export class UserPage {
                         this.userForm.controls[key].setValue(user[key]);
                     });
                 }
-            
-            
         });
     }
-
-    
 
     onSubmit() {
         this.loading = true;
 
-        var finish = null;
+        let finish = null;
 
-        if(this.userId)
+        if (this.userId)
             finish = this.usersService.update(this.userId, this.userForm.value); 
         else
             finish = this.usersService.create(this.userForm.value);
