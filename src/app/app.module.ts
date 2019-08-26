@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/Header/Header.component';
 import { LoadingComponent } from './components/Loading/Loading.component';
 import { UserListPage } from './pages/UserList/UserList.page';
 import { UserPage } from './pages/User/User.page';
+import { LoginPage } from './pages/Login/Login.page';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HeaderComponent,
     LoadingComponent,
     UserListPage,
-    UserPage
+    UserPage,
+    LoginPage
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

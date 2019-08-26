@@ -4,6 +4,13 @@ export class User {
     private _age: number;
     private _email: string;
     private _phone: string;
+    private _cpf: string;
+    private _postalcode: string;
+    private _street: string;
+    private _number: number;
+    private _complement: string;
+    private _city: string;
+    private _state: string;
 
 
     get id(): string {
@@ -39,5 +46,26 @@ export class User {
     }
     set phone(newPhone: string) {
         this._phone = newPhone;
+    }
+
+    get cpf(): string {
+        return this._cpf;
+    }
+    set cpf(newCpf: string) {
+        this._cpf = newCpf;
+    }
+
+    get postalcode(): string {
+        return this._postalcode;
+    }
+    set postalcode(newPostalCode: string) {
+        this._postalcode = newPostalCode;
+    }
+
+    get street(): string {
+        return this._street;
+    }
+    set street(newStreet: string) {
+        this._street = newStreet;
     }
 }

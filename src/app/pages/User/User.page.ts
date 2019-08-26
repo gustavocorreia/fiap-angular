@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {NgbButtonLabel} from '@ng-bootstrap/ng-bootstrap';
 
 import { UsersService } from '../../services/Users.service';
-import { DocumentReference } from '@angular/fire/firestore';
 
 @Component({
     templateUrl: './User.page.html',
