@@ -1,17 +1,26 @@
 <div>
+
+    <form>
+        
+    </form>
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Idade</th>
                 <th scope="col">E-mail</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{ user.name }}</td>
-                <td>{{ user.age }}</td>
-                <td>{{ user.email }}</td>
+            <tr *ngFor="let user of users | sort: 'name, age, email'">
+                <td scope="row">{{ user.name }}</td>
+                <td scope="row">{{ user.age }}</td>
+                <td scope="row">{{ user.email }}</td>
+                <td scope="row"></td>
+                <td scope="row"></td>
             </tr>
         </tbody>
     </table>

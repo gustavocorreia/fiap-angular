@@ -3,10 +3,12 @@ import { UsersService } from 'src/app/services/Users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { SortPipe } from 'src/app/pipes/sort.pipe';
 
 @Component({
     templateUrl: './UserList.page.html',
-    styleUrls: ['./UserList.page.css']
+    styleUrls: ['./UserList.page.css'],
 })
 
 export class UserListPage {

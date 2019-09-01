@@ -5,9 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class FilterPipe implements PipeTransform {
-    transform(items: any, filterBy: string) {
+    transform(items: Array<any>, filterBy: string) {
         console.log(filterBy);
 
-        return items;
+        if(items == undefined)
+            return [];
+
+        if(filterBy == undefined)
+            return items;
+
+        return items.filter(x => x.name == filterBy || x.age == filterBy || x.email == filterBy);
     }
 }

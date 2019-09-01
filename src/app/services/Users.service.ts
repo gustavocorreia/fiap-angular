@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
     constructor(private http: HttpClient, private db: AngularFirestore) {}
 
     getById(id: string) {
-
         return this.db.collection('users').doc(id).snapshotChanges();
-
     }
 
     getAll() {

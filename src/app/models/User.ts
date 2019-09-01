@@ -68,4 +68,32 @@ export class User {
     set street(newStreet: string) {
         this._street = newStreet;
     }
+
+    get number(): number {
+        return this._number;
+    }
+    set number(newNumber: number) {
+        this._number = newNumber;
+    }
+
+    get complement() : string {
+        return this._complement;
+    }
+    set complement(newComplement: string) {
+        this._complement = newComplement;
+    }
+
+    get city() : string {
+        return this._city;
+    }
+    set city(newCity: string) {
+        this._city = newCity;
+    }
+
+    get state() : string {
+        return this._state;
+    }
+    set state(newState: string) {
+        this._state = newState;
+    }
 }
