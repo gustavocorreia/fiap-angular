@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { UsersService } from 'src/app/services/Users.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/Auth.service';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User } from 'src/app/models/User';
+import { ILogin } from '../../interfaces/ILogin';
 
 @Component({
     templateUrl: './Login.page.html',
@@ -10,12 +10,29 @@ import { User } from 'src/app/models/User';
 })
 
 export class LoginPage {
+    public loading: boolean = false;
 
-    constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {
+    loginForm = new FormGroup({
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required])
+    });
+
+    constructor(private authService: AuthService, private router: Router) {
 
     }
 
     onSubmit() {
-        
+        this.loading = true;
+
+        const userLogin = this.loginForm.value as ILogin;
+
+        let finish = this.authService.signIn(userLogin);
+
+        finish.then(() => this.router.navigate(['/']))
+        .catch(() => this.loading = false);
+    }
+
+    onClickNewUser() {
+        this.router.navigate(['/user']);
     }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { UsersService } from '../../services/Users.service';
+import { AuthService } from '../../services/Auth.service';
 
 @Component({
     templateUrl: './User.page.html',
@@ -20,11 +21,14 @@ export class UserPage {
         phone: new FormControl('', Validators.required), 
     });
 
-    constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {
+    constructor(private usersService: UsersService,
+                private authService: AuthService,
+                private route: ActivatedRoute, 
+                private router: Router) {
         
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.userId = this.route.snapshot.paramMap.get('id');
         
         if(this.userId)
@@ -39,8 +43,6 @@ export class UserPage {
             if (res.payload.exists) {
                 const user = res.payload.data();
 
-                console.log(user);
-
                 Object.keys(user)
                     .filter(key => key != 'id')
                     .forEach((key) => {
@@ -54,11 +56,14 @@ export class UserPage {
         this.loading = true;
 
         let finish = null;
+        let finishAuth = null;
 
         if (this.userId)
             finish = this.usersService.update(this.userId, this.userForm.value); 
-        else
+        else {
             finish = this.usersService.create(this.userForm.value);
+        }
+            
 
         finish.then(() => this.router.navigate(['/']))
         .catch(() => this.loading = false);

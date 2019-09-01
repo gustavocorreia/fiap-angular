@@ -13,16 +13,11 @@
             <input type="password" class="form-control" name="password" formControlName="password" placeholder="Senha" />
         </div>
 
-        <div class="form-control form-check">
-            <input type="checkbox" class="form-check-input" name="remember" formControlName="remember" />
-            <label for="remember">Continuar conectado</label>
-        </div>
-
         <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
             Entrar
         </button>
 
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" (click)="onClickNewUser()">
             Novo Usuário
         </button>
     </form>
