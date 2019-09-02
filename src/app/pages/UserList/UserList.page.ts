@@ -3,6 +3,8 @@ import { UsersService } from 'src/app/services/Users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 
+import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
+
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
 import { SortPipe } from 'src/app/pipes/sort.pipe';
 
@@ -14,6 +16,10 @@ import { SortPipe } from 'src/app/pipes/sort.pipe';
 export class UserListPage {
 
     private users: Array<User>;
+
+    // Font-awesome
+    faEdit = faEdit;
+    faTimes = faTimes;
 
     constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {}
 
@@ -40,5 +46,9 @@ export class UserListPage {
                 }
             });
         })
+    }
+
+    newFilterBy(event) {
+        
     }
 }

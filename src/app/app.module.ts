@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -22,6 +23,7 @@ import { UserListPage } from './pages/UserList/UserList.page';
 import { UserPage } from './pages/User/User.page';
 import { LoginPage } from './pages/Login/Login.page';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     FooterComponent,
     UserListPage,
     UserPage,
-    LoginPage
+    LoginPage,
+    Error404Component
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -44,6 +47,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
+    FontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

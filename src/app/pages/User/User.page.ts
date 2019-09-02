@@ -18,7 +18,12 @@ export class UserPage {
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
         age: new FormControl('', Validators.required),
-        phone: new FormControl('', Validators.required), 
+        phone: new FormControl('', Validators.required),
+        cpf: new FormControl('', Validators.required),
+        street: new FormControl('', Validators.required),
+        number: new FormControl('', [Validators.required]),
+        password: new FormControl('', Validators.required),
+        password_confirm: new FormControl('', Validators.required) 
     });
 
     constructor(private usersService: UsersService,

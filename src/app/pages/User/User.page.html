@@ -12,26 +12,88 @@
 
         <div class="form-group col-sm-12">
             <input type="email" class="form-control" name="email" formControlName="email" placeholder="E-mail" />
-            <span **ngIf="userForm.controls.email.invalid && userForm.controls.email.touched">
+            <span *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched">
                 O campo e-mail é obrigatório
             </span>
         </div>
 
         <div class="form-group col-sm-12">
             <input type="number" class="form-control" name="age" formControlName="age" placeholder="Idade"/>
+            <span *ngIf="userForm.controls.age.invalid && userForm.controls.age.touched">
+                O campo idade é obrigatório
+            </span>
         </div>
         
         <div class="form-group col-sm-12">
             <input type="tel" class="form-control" name="phone" formControlName="phone" placeholder="Celular"/>
+            <span *ngIf="userForm.controls.phone.invalid && userForm.controls.phone.touched">
+                O campo celular é obrigatório
+            </span>
         </div>
 
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="cpf" formControlName="cpf" placeholder="CPF" />
+            <span *ngIf="userForm.controls.cpf.invalid && userForm.controls.cpf.touched">
+                O campo CPF é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="postalCode" formControlName="postalCode" placeholder="CEP" />
+            <span *ngIf="userForm.controls.postalCode.invalid && userForm.controls.postalCode.touched">
+                O campo CEP é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="street" formControlName="street" placeholder="Endereço" />
+            <span *ngIf="userForm.controls.street.invalid && userForm.controls.street.touched">
+                O campo Endereço é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="number" class="form-control" name="number" formControlName="number" placeholder="Nº" />
+            <span *ngIf="userForm.controls.number.invalid && userForm.controls.number.touched">
+                O campo Nº é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="complement" formControlName="complement" placeholder="Complemento" />
+            <span *ngIf="userForm.controls.complement.invalid && userForm.controls.complement.touched">
+                O campo Complemento é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="city" formControlName="city" placeholder="Cidade" />
+            <span *ngIf="userForm.controls.city.invalid && userForm.controls.city.touched">
+                O campo Cidade é obrigatório
+            </span>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="text" class="form-control" name="state" formControlName="state" placeholder="Estado" />
+            <span *ngIf="userForm.controls.state.invalid && userForm.controls.state.touched">
+                O campo Estado é obrigatório
+            </span>
+        </div>
 
         <div class="form-group col-sm-12">
             <input type="password" class="form-control" name="password" formControlName="password" placeholder="Senha" />
+            <span *ngIf="userForm.controls.password.invalid && userForm.controls.password.touched">
+                O campo Senha é obrigatório
+            </span>
+
+            
         </div>
 
         <div class="form-group col-sm-12">
-            <input type="password" class="form-control" name="password_confirm" formControlName="password_confirm" placeholder="Senha" />
+            <input type="password" class="form-control" name="password_confirm" formControlName="password_confirm" placeholder="Repita a Senha" />
+            <span *ngIf="userForm.controls.password_confirm.invalid && userForm.controls.password_confirm.touched">
+                O campo Confirme a senha é obrigatório
+            </span>
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">

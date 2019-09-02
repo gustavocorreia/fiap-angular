@@ -12,6 +12,7 @@ export class AuthService {
     }
 
     get isAuthenticated() : boolean {
+        console.log(this.fireAuth.authState);
         if(this.fireAuth.user === undefined)
             return false;
 

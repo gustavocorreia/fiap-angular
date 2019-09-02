@@ -1,6 +1,16 @@
 # FiapAngularG
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
+## Available Scripts
+
+First, you need to run:
+
+### `git clone https://github.com/gustavocorreia/fiap-angular`
+
+In the project directory, you can run two commands:
+
+### `npm install`
 
 ## Development server
 
