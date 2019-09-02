@@ -22,6 +22,7 @@ export class HeaderComponent {
     }
 
     private verifyAuthentication() {
+
         this.isAutenticated = this.authService.isAuthenticated;
 
         if(!this.isAutenticated && this.router.url.indexOf('login') == -1)

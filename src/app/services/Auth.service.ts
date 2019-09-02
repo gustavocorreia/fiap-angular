@@ -3,11 +3,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { ILogin } from 'src/app/interfaces/ILogin'
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-    get authUser() {
+    get authUser() : Observable<firebase.User> {
         return this.fireAuth.user;
     }
 
