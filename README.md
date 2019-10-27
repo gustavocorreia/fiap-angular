@@ -2,37 +2,28 @@
 
 Projeto criado para a aula de Angular [Angular CLI].
 
-## O necessário para executar o projeto
+## O necessário para baixar/configurar o projeto
 
 1. Primeiro, abra o terminal/Prompt de Comando
 2. Baixe o projeto executando o seguinte comando:
 
 ### `git clone https://github.com/gustavocorreia/fiap-angular`
 
-In the project directory, you can run two commands:
+3. Acesse a pasta do projeto usando o comando:
+
+### `cd fiap-angular`
+
+4. Execute o comando (incluir o sudo caso for um sistema unix):
 
 ### `npm install`
 
-## Development server
+Com isso, será gerado a pasta /node_modules
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Executando o projeto
 
-## Code scaffolding
+1. Execute o comando `ng serve`
+2. Abra o navegador e acesse o endereço `http://localhost:4200/`
+
+## Acessando o sistema no Firebase Hosting
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
