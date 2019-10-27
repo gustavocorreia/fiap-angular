@@ -17,6 +17,9 @@ export class UserListPage {
 
     private users: Array<User>;
 
+    public filterBy = '';
+    public sortBy = '';
+
     // Font-awesome
     faEdit = faEdit;
     faTimes = faTimes;
@@ -49,6 +52,10 @@ export class UserListPage {
     }
 
     newFilterBy(event) {
-        
+        this.filterBy = event.target.value;
+    }
+
+    newSortBy(event) {
+        this.filterBy = event.target.value;
     }
 }

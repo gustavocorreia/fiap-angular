@@ -97,6 +97,7 @@ export class UserPage {
             finishAuth.then((newUser) => {
                 uid = newUser.uid;
             }).catch((err) => {
+                console.log(err);
                 this.loading = false;
             });
 

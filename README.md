@@ -1,10 +1,11 @@
-# FiapAngularG
+# FiapAngularG - Aplicativo para o Trabalho de Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+Projeto criado para a aula de Angular [Angular CLI].
 
-## Available Scripts
+## O necessário para executar o projeto
 
-First, you need to run:
+1. Primeiro, abra o terminal/Prompt de Comando
+2. Baixe o projeto executando o seguinte comando:
 
 ### `git clone https://github.com/gustavocorreia/fiap-angular`
 

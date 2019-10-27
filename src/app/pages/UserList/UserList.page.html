@@ -1,10 +1,10 @@
 <div>
 
     <div class="form-group form-inline">
-        <input class="form-control ml-2" type="text" name="filter" id="filter" (keyup)="filterBy($event)" />  
+        <input class="form-control ml-2" type="text" name="filter" id="filter" (keyup)="newFilterBy($event)" />  
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-responsible table-striped">
         <thead>
             <tr>
                 <th scope="col">Nome</th>
@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users | sort: 'name, age, email'">
+            <tr *ngFor="let user of users | order: sortBy | filter: filterBy">
                 <td>{{ user.name }}</td>
                 <td>{{ user.age }}</td>
                 <td>{{ user.email }}</td>
