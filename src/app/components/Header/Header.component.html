@@ -3,8 +3,8 @@
         <span class="navbar-brand mb-0 h1">Sistema de Gestão de Usuários</span>
 
         <div>
-            <button type="button" class="btn btn-link" *ngIf="this.isAutenticated" (click)="signOut()"> Sair </button>
-            <button type="button" class="btn btn-link" *ngIf="!this.isAutenticated">Bem-vindo</button>
+            <button type="button" class="btn btn-link" *ngIf="this.router.url.indexOf('login') == -1" (click)="signOut()"> Sair </button>
+            <button type="button" class="btn btn-link" *ngIf="this.router.url.indexOf('login') > -1">Bem-vindo</button>
         </div>
     </nav>
 </header>
