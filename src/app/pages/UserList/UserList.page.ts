@@ -16,7 +16,8 @@ import { SortPipe } from 'src/app/pipes/sort.pipe';
 export class UserListPage {
 
     private users: Array<User>;
-
+    
+    public loading: boolean = false;
     public filterBy = '';
     public sortBy = '';
 
@@ -49,6 +50,17 @@ export class UserListPage {
                 }
             });
         })
+    }
+
+    onDelete(id) {
+        this.loading = true;
+
+        this.usersService.delete(id).then((data) => {
+            this.router.navigate(['/']);
+        }).catch((error) => {
+            this.loading = false;
+            console.error(error);
+        });
     }
 
     newFilterBy(event) {

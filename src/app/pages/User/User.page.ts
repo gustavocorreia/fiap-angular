@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersService } from '../../services/Users.service';
 import { AuthService } from '../../services/Auth.service';
 import { ILogin } from 'src/app/interfaces/ILogin';
+import { IUser } from '../../interfaces/IUser';
 
 @Component({
     templateUrl: './User.page.html',
@@ -70,23 +71,13 @@ export class UserPage {
 
         let uid = null;
 
-        const user = {
-            name: this.userForm.value.name,
-            email: this.userForm.value.email,
-            age: this.userForm.value.age,
-            phone: this.userForm.value.phone,
-            cpf: this.userForm.value.cpf,
-            postalCode: this.userForm.value.postalCode,
-            street: this.userForm.value.street,
-            number: this.userForm.value.number,
-            complement: this.userForm.value.complement,
-            city: this.userForm.value.city,
-            state: this.userForm.value.state
-        };
+        const user = this.userForm.value as IUser;
 
-        if (this.userId)
+        if (this.userId) {
             finish = this.usersService.update(this.userId, user); 
-        else {
+
+            this.completUser(finish);
+        } else {
             const login = {
                 email: this.userForm.value.email,
                 password: this.userForm.value.password
@@ -96,17 +87,23 @@ export class UserPage {
 
             finishAuth.then((newUser) => {
                 uid = newUser.uid;
+
+                finish = this.usersService.create(user);
+
+                this.completUser(finish);
             }).catch((err) => {
-                console.log(err);
+                console.error(err);
                 this.loading = false;
             });
-
-            if(uid === null)
-                finish = this.usersService.update(uid, user);
-            else
-                finish = this.usersService.create(user);
         }
             
+        
+    }
+
+    completUser(finish) {
+
+        console.log(finish);
+
         if(finish === undefined)
             finish.then(() => this.router.navigate(['/']))
                 .catch(() => this.loading = false);

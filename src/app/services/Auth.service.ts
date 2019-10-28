@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
@@ -13,8 +14,10 @@ export class AuthService {
     }
 
     get isAuthenticated() : boolean {
-        console.log(this.fireAuth.authState);
-        if(this.fireAuth.user === undefined)
+
+        console.log(this.fireAuth.auth.currentUser);
+
+        if(this.fireAuth.auth.currentUser == null)
             return false;
 
         return true;
@@ -37,5 +40,7 @@ export class AuthService {
         return this.fireAuth.auth.signOut();
     }
 
-
+    setPersistent(){
+        return this.fireAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+    }
 }

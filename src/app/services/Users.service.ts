@@ -21,5 +21,9 @@ export class UsersService {
     update(id, data) {
         return this.db.collection('users').doc(id).set(data);
     }
+
+    delete(id) {
+        return this.db.collection('users').doc(id).delete();
+    }
 }
 

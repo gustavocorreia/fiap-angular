@@ -1,10 +1,14 @@
-<div>
+<loading [show]='loading'></loading>
+
+<div class="container">
+    <h1>Lista de Usuários</h1>    
 
     <div class="form-group form-inline">
+        <label for="filter">Pesquisar</label>
         <input class="form-control ml-2" type="text" name="filter" id="filter" (keyup)="newFilterBy($event)" />  
     </div>
 
-    <table class="table table-responsible table-striped">
+    <table class="table table-responsible table-bordered table-striped">
         <thead>
             <tr>
                 <th scope="col">Nome</th>
@@ -15,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users | order: sortBy | filter: filterBy">
+            <tr *ngFor="let user of users | sort: sortBy | filter: filterBy">
                 <td>{{ user.name }}</td>
                 <td>{{ user.age }}</td>
                 <td>{{ user.email }}</td>
@@ -23,7 +27,7 @@
                     <a routerLink="/user/{{user.id}}"><fa-icon [icon]="faEdit"></fa-icon></a>
                 </td>
                 <td>
-                    <fa-icon [icon]="faTimes"></fa-icon>
+                    <a href="javascript:void(0)" (click)="onDelete(user.id);"><fa-icon [icon]="faTimes"></fa-icon></a>
                 </td>
             </tr>
         </tbody>

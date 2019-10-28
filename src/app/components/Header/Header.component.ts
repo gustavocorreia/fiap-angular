@@ -25,8 +25,8 @@ export class HeaderComponent {
 
         this.isAutenticated = this.authService.isAuthenticated;
 
-        if(!this.isAutenticated && this.router.url.indexOf('login') == -1)
-            this.router.navigate(['/login']);
+        // if(!this.isAutenticated && this.router.url.indexOf('login') == -1)
+        //     this.router.navigate(['/login']);
     }
 
     signOut() {

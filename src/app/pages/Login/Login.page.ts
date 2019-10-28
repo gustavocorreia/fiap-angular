@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/Auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { AuthService } from '../../services/Auth.service';
 import { ILogin } from '../../interfaces/ILogin';
 
 @Component({
@@ -26,10 +27,13 @@ export class LoginPage {
 
         const userLogin = this.loginForm.value as ILogin;
 
-        let finish = this.authService.signIn(userLogin);
+        this.authService.setPersistent().then(() => {
+            let finish = this.authService.signIn(userLogin);
 
-        finish.then(() => this.router.navigate(['/']))
-        .catch(() => this.loading = false);
+            finish.then(() => this.router.navigate(['/']))
+            .catch(() => this.loading = false);
+        }).catch(() => this.loading = false);
+        
     }
 
     onClickNewUser() {
