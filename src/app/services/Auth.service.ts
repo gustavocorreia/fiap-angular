@@ -15,8 +15,6 @@ export class AuthService {
 
     get isAuthenticated() : boolean {
 
-        console.log(this.fireAuth.auth.currentUser);
-
         if(this.fireAuth.auth.currentUser == null)
             return false;
 

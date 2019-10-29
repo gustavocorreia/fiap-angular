@@ -33,11 +33,11 @@ export class UserListPage {
 
     private getAllUsers() {
         const usersSnapshot = this.usersService.getAll();
-
+        
         this.users = new Array<User>();
 
         usersSnapshot.subscribe(resp => {
-
+            
             resp.map(item => {
 
                 if (item.payload.doc.exists) {

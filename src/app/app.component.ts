@@ -8,14 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FiapAngularG';
+  title = 'FiapAngularG - Sistema de Cadastro de usuários';
 
   constructor(private fireAuth: AngularFireAuth, private router: Router) {
 
     this.fireAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user);
-      } else {
+      if (user == null)  {
         this.router.navigate(['/login'])
       } 
     });

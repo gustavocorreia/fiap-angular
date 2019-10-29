@@ -66,48 +66,36 @@ export class UserPage {
     onSubmit() {
         this.loading = true;
 
-        let finish = null;
-        let finishAuth = null;
-
-        let uid = null;
-
         const user = this.userForm.value as IUser;
 
         if (this.userId) {
-            finish = this.usersService.update(this.userId, user); 
-
-            this.completUser(finish);
+            this.alterUser(user);
         } else {
             const login = {
                 email: this.userForm.value.email,
                 password: this.userForm.value.password
             } as ILogin;
 
-            finishAuth = this.authService.createUser(login);
-
-            finishAuth.then((newUser) => {
-                uid = newUser.uid;
-
-                finish = this.usersService.create(user);
-
-                this.completUser(finish);
+            this.authService.createUser(login)
+            .then((newUser) => {
+                this.createUser(user);
             }).catch((err) => {
                 console.error(err);
                 this.loading = false;
             });
-        }
-            
+        }   
         
     }
 
-    completUser(finish) {
+    createUser(user: IUser) {
+        this.usersService.create(user)
+        .then(() => this.router.navigate(['/']))
+        .catch(() => this.loading = false);
+    }
 
-        console.log(finish);
-
-        if(finish === undefined)
-            finish.then(() => this.router.navigate(['/']))
-                .catch(() => this.loading = false);
-        else
-            this.loading = false;
+    alterUser(user: IUser){
+        this.usersService.update(this.userId, user)
+        .then(() => this.router.navigate(['/']))
+        .catch(() => this.loading = false);
     }
 }
