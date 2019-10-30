@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users | filter: filterBy">
+            <tr *ngFor="let user of users | sort: sortBy | filter: filterBy">
                 <td>{{ user.name }}</td>
                 <td>{{ user.age }}</td>
                 <td>{{ user.email }}</td>
