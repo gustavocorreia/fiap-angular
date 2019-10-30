@@ -13,7 +13,7 @@ export class HeaderComponent {
     isAutenticated = true;
 
     constructor(private authService: AuthService,   
-                private router: Router) { 
+                public router: Router) { 
                   
     }
 
@@ -29,7 +29,7 @@ export class HeaderComponent {
         this.authService.signOut().then(() => {
             this.router.navigate(['/login']);
         }).catch((err) => {
-            console.log(err);
+            console.error(err);
         });
     }
 }

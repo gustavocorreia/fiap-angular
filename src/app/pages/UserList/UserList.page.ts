@@ -15,7 +15,7 @@ import { SortPipe } from 'src/app/pipes/sort.pipe';
 
 export class UserListPage {
 
-    private users: Array<User>;
+    public users: Array<User>;
     
     public loading: boolean = false;
     public filterBy = '';

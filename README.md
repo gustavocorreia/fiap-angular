@@ -18,4 +18,4 @@ Com isso, será gerado a pasta /node_modules
 
 ## Acessando o sistema no Firebase Hosting
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Abra o navegador e acesse o endereço `https://angular-f02ad.firebaseapp.com/`.
