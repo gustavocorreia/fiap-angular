@@ -24,13 +24,13 @@ export class FilterPipe implements PipeTransform {
                 return data.email.toUpperCase().includes(filterBy.toUpperCase()); 
             });
 
-            return this.concatArrayWithotDuplicates(valuesName, valuesAge, valuesEmail);
+            return this.concatArrayWithoutDuplicates(valuesName, valuesAge, valuesEmail);
         }
             
         return items;
     }
 
-    private concatArrayWithotDuplicates(array1: Array<any>,
+    private concatArrayWithoutDuplicates(array1: Array<any>,
                                         array2: Array<any>,
                                          array3: Array<any>) {
         let values = [];

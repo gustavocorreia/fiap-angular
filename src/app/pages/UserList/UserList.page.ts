@@ -56,7 +56,7 @@ export class UserListPage {
         this.loading = true;
 
         this.usersService.delete(id).then((data) => {
-            this.router.navigate(['/']);
+            window.location.reload();
         }).catch((error) => {
             this.loading = false;
             console.error(error);
