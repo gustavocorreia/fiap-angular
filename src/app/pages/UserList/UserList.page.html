@@ -11,15 +11,27 @@
     <table class="table table-responsible table-bordered table-striped">
         <thead>
             <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Idade</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Editar</th>
+                <th scope="col">
+                    Nome
+                    <fa-icon [icon]="faSortUp" (click)="newSortBy('name', true)"></fa-icon>
+                    <fa-icon [icon]="faSortDown" (click)="newSortBy('name', false)"></fa-icon>
+                </th>
+                <th scope="col">
+                    Idade
+                    <fa-icon [icon]="faSortUp" (click)="newSortBy('age', true)"></fa-icon>
+                    <fa-icon [icon]="faSortDown" (click)="newSortBy('age', false)"></fa-icon>
+                </th>
+                <th scope="col">
+                    E-mail
+                    <fa-icon [icon]="faSortUp" (click)="newSortBy('email', true)"></fa-icon>
+                    <fa-icon [icon]="faSortDown" (click)="newSortBy('email', false)"></fa-icon>
+                </th>
+                <th scope="col"> Editar</th>
                 <th scope="col">Excluir</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users | sort: sortBy | filter: filterBy">
+            <tr *ngFor="let user of users | sort: sortBy:direction | filter: filterBy">
                 <td>{{ user.name }}</td>
                 <td>{{ user.age }}</td>
                 <td>{{ user.email }}</td>

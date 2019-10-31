@@ -5,9 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class SortPipe implements PipeTransform {
-    transform(items: Array<any>, orderBy: string, direction: string) {
+    transform(items: Array<any>, orderBy: string, direction: boolean) {
 
     
+        if(orderBy == '')
+            return items;
+
         return items.sort((a, b) => {
             let response: number = 0;
             if (a[orderBy] < b[orderBy]) {
@@ -18,7 +21,7 @@ export class SortPipe implements PipeTransform {
                 response = 0;
             }
 
-            return direction === 'asc' ? response : -response;
+            return direction ? response : -response;
         });
     }
 }

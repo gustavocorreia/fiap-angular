@@ -3,7 +3,7 @@ import { UsersService } from 'src/app/services/Users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 
-import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTimes, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
 import { SortPipe } from 'src/app/pipes/sort.pipe';
@@ -20,10 +20,13 @@ export class UserListPage {
     public loading: boolean = false;
     public filterBy = '';
     public sortBy = '';
+    public direction: boolean = true;
 
     // Font-awesome
     faEdit = faEdit;
     faTimes = faTimes;
+    faSortUp = faSortUp;
+    faSortDown = faSortDown;
 
     constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {}
 
@@ -67,7 +70,8 @@ export class UserListPage {
         this.filterBy = event.target.value;
     }
 
-    newSortBy(event) {
-        this.filterBy = event.target.value;
+    newSortBy(columnName, directionB) {
+        this.sortBy = columnName;
+        this.direction = directionB;
     }
 }
